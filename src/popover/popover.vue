@@ -144,7 +144,7 @@ export default {
   },
   methods: {
     showP(e) {
-      e.stopPropagation();
+      // e.stopPropagation();
       if (this.trigger === "focus") {
         this.$nextTick(() => {
           toggleState("focus", this.$refs.tigger);
@@ -156,7 +156,7 @@ export default {
       this.$emit("show-popover");
     },
     hideP(e) {
-      e.stopPropagation();
+      // e.stopPropagation();
       if (this.trigger === "focus") {
         this.$nextTick(() => {
           toggleState("blur", this.$refs.tigger);

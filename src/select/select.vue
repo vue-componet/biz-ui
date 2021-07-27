@@ -13,10 +13,10 @@
       >
         <input
           v-model="inputValue"
+          v-clickoutside="clickoutside"
           ref="input"
           type="text"
           class="biz-select__input"
-          @blur="toggleFocus('false')"
         />
       </div>
       <div :style="optionsStyle" class="biz-select__options">
@@ -28,9 +28,11 @@
 
 <script>
 import BizPopover from "@/popover/popover";
+import clickoutside from "@/utils/clickoutside";
 export default {
   name: "biz-select",
   componentName: "biz-select",
+  directives: { clickoutside },
   components: {
     BizPopover,
   },
@@ -70,15 +72,14 @@ export default {
     this.boxRect = this.$refs.reference.getBoundingClientRect();
   },
   methods: {
+    clickoutside() {
+      this.isFocus = false
+    },
     handleSelectOption(optionInstance) {
       console.log("1233", optionInstance);
     },
-    toggleFocus(type) {
-      if (typeof type === 'boolean') {
-        this.isFocus = type
-      } else {
-        this.isFocus = !this.isFocus;
-      }
+    toggleFocus(e) {
+      this.isFocus = !this.isFocus;
     },
   },
 };

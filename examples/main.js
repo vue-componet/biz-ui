@@ -8,6 +8,10 @@ Vue.use(BizUI)
 
 // Vue.component(MyButton.name, MyButton)
 
+// document.addEventListener('click', (e) => {
+// 	console.log(e)
+// })
+
 new Vue({
 	render: h => h(App)
 }).$mount('#app')
