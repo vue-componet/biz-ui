@@ -7,8 +7,13 @@
     <p>-------------</p>
     <p>-------------</p>
     <p>-------------</p>
-    <biz-select>
-      <biz-option label="aaaaa"></biz-option>
+    <biz-select v-model="selectValue">
+      <biz-option 
+        v-for="(option, index) in options"
+        :key="index"
+        :label="option.label"
+        :value="option"
+      ></biz-option>
     </biz-select>
     <biz-select>
       <biz-option>123456</biz-option>
@@ -33,7 +38,22 @@ export default {
   name: 'hello',
   data() {
     return {
-      list: [1,2,3]
+      list: [1,2,3],
+      selectValue: '',
+      options: [
+        {
+          label: 'option1',
+          value: 'option1111'
+        },
+        {
+          label: 'option2',
+          value: 'option2223'
+        },
+        {
+          label: 'option3',
+          value: 'option3333'
+        },
+      ]
     }
   },
   methods: {

@@ -73,10 +73,13 @@ export default {
   },
   methods: {
     clickoutside() {
-      this.isFocus = false
+      this.isFocus = false;
     },
     handleSelectOption(optionInstance) {
       console.log("1233", optionInstance);
+
+      this.$emit('input', optionInstance.value)
+      this.isFocus = false
     },
     toggleFocus(e) {
       this.isFocus = !this.isFocus;
